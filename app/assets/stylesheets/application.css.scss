@@ -58,9 +58,14 @@ body {
   display: inline-block;
   background-color: $med;
   vertical-align: top;
+  padding: 1em;
 
   ul {
     list-style: none;
+    font-size: 24px;
+  }
+
+  li {
     font-size: 24px;
   }
 }
@@ -71,8 +76,9 @@ body {
   display: inline-block;
   background-color: $highlight;
   vertical-align: top;
-
   div {
     font-size: 24px;
+    padding: 2em;
+    border: 1px solid $dark;
   }
 }
