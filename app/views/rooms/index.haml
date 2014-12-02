@@ -1,4 +1,4 @@
-%div.header Api or something lolz
+%div.header The clouds covered the sun before it was cool
 %div.users
   %ul
     - @users.each do |user|
@@ -6,6 +6,7 @@
 
 %div.messages
   - @messages.each do |message|
-    %div
+    %div.message
+      %div.nickname
+        = "#{message.user.nickname}:"
       = message.text
-      = "By #{message.user.nickname}"
