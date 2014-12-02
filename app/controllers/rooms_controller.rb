@@ -2,10 +2,16 @@ class RoomsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     rooms = Room.all
+    @messages = Message.all
     respond_to do |f|
       f.html {}
       f.json {render :json => rooms}
     end
+  end
+
+  def show
+    room = Room.find(params[:room_id])
+    render :json => { room: room, messages: room.messages }
   end
 
   def create
