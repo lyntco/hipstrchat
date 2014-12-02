@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     rooms = Room.all
     respond_to do |f|
