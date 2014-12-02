@@ -1,10 +1,11 @@
-Api or something lolz
+%div.header Api or something lolz
 %div.users
-  - @users.each do |user|
-    %li= user.nickname
+  %ul
+    - @users.each do |user|
+      %li= user.nickname
 
 %div.messages
-- @messages.each do |message|
-  %div
-    = message.text
-    = "By #{message.user.nickname}"
+  - @messages.each do |message|
+    %div
+      = message.text
+      = "By #{message.user.nickname}"
