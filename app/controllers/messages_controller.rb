@@ -7,6 +7,7 @@ class MessagesController
 
   def create
     message = Message.new(message_params)
+    message.room_id = params[:room_id]
     if message.save
       render :json => message
     else
@@ -16,7 +17,7 @@ class MessagesController
 
   private
   def message_params
-    params.require(:message).permit(:text, :user_id, :room_id)
+    params.require(:message).permit(:text, :user_id)
   end
 
 end
