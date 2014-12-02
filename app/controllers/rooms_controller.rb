@@ -1,5 +1,10 @@
 class RoomsController < ApplicationController
   def index
+    rooms = Room.all
+    respond_to do |f|
+      f.html {}
+      f.json {render :json => rooms}
+    end
   end
 
   def create
