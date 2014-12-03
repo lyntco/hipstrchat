@@ -1,7 +1,7 @@
 %div.header The clouds covered the sun before it was cool
 %div.users
   %ul
-    - @users.each do |user|
+    - @users.reverse.each do |user|
       %li= user.nickname
 
 %div.messages
