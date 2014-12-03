@@ -38,8 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'haml'
 
-gem 'puma'
-gem 'rb-fsevent'
+# gem 'puma'
+# gem 'rb-fsevent'
 
 # Use unicorn as the app server
 # gem 'unicorn'
