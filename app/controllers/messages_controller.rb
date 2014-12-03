@@ -1,9 +1,25 @@
 class MessagesController < ApplicationController
   # skip_before_action :verify_authenticity_token
-  def index
-    messages = Message.where(room_id: params[:room_id])
-    render :json => messages
-  end
+  # include ActionController::Live
+  # def index
+  #   messages = Message.where(room_id: params[:room_id])
+
+  #   response.headers['Content-Type'] = 'text/event-stream'
+
+  #   sse = Reloader::SSE.new(response.stream)
+
+  #   begin
+  #     loop do
+  #       sse.write({ :messages => messages.to_json })
+  #       sleep 1
+  #     end
+  #   rescue IOError
+  #     # When the client disconnects, we'll get an IOError on write
+  #   ensure
+  #     sse.close
+  #   end
+  #   render :json => messages
+  # end
 
   def create
     message = Message.new(message_params)

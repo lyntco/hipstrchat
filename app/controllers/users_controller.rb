@@ -1,7 +1,22 @@
 class UsersController < ApplicationController
   # skip_before_action :verify_authenticity_token
+  # include ActionController::Live
   def index
     users = User.all
+    # response.headers['Content-Type'] = 'text/event-stream'
+
+    # sse = Reloader::SSE.new(response.stream)
+
+    # begin
+    #   loop do
+    #     sse.write({ :users => users.to_json })
+    #     sleep 1
+    #   end
+    # rescue IOError
+    #   # When the client disconnects, we'll get an IOError on write
+    # ensure
+    #   sse.close
+    # end
     render :json => users
   end
 

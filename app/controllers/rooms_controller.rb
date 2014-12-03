@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   # skip_before_action :verify_authenticity_token
+  # include ActionController::Live
   def index
     rooms = Room.all
     @messages = Message.all
@@ -11,7 +12,28 @@ class RoomsController < ApplicationController
   end
 
   def show
-    room = Room.find(params[:room_id])
+    room = Room.find(params[:id])
+    # messages = room.messages
+    # message_count = room.messages.length
+    # response.headers['Content-Type'] = 'text/event-stream'
+
+    # sse = Reloader::SSE.new(response.stream)
+
+    # begin
+    #   #initially writes the data
+    #   sse.write({ room: room.to_json, messages: messages.to_json })
+    #   loop do
+    #     sse.write({ count: message_count , current: Room.find(params[:id]).messages.length })
+    #     if message_count != Room.find(params[:id]).messages.length
+    #       sse.write({ room: room.to_json, messages: messages.to_json, event: 'new_message' })
+    #     end
+    #     sleep 1
+    #   end
+    # rescue IOError
+    #   # When the client disconnects, we'll get an IOError on write
+    # ensure
+    #   sse.close
+    # end
     render :json => { room: room, messages: room.messages }
   end
 
