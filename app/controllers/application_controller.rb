@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     if request.headers["HTTP_ORIGIN"]
     # better way check origin
     # if request.headers["HTTP_ORIGIN"] && /^https?:\/\/(.*)\.some\.site\.com$/i.match(request.headers["HTTP_ORIGIN"])
-      headers['Access-Control-Allow-Origin'] = "*"
+      headers['Access-Control-Allow-Origin'] = request.headers["HTTP_ORIGIN"]
       headers['Access-Control-Expose-Headers'] = 'ETag'
       headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
       headers['Access-Control-Allow-Headers'] = '*'
