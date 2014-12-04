@@ -24,6 +24,7 @@ class MessagesController < ApplicationController
   def create
     # message = Message.new(message_params)
     message = Message.new
+    raise params.inspect
     message.text = params[:text]
     message.user_id = params[:user_id]
     message.room_id = params[:room_id]
