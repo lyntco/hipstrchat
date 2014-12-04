@@ -22,12 +22,15 @@ class MessagesController < ApplicationController
   # end
 
   def create
+     headers['Access-Control-Allow-Origin'] = request.headers["HTTP_ORIGIN"]
     # message = Message.new(message_params)
     message = Message.new
+
+    params_hack = JSON.parse(params.keys[0])
     # raise params.inspect
-    message.text = params[:text]
-    message.user_id = params[:user_id]
-    message.room_id = params[:room_id]
+    message.text = params_hack["text"]
+    message.user_id = params_hack['user_id'].to_i
+    message.room_id = params[:room_id].to_i
     if message.save
       render :json => message
     else
